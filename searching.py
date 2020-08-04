@@ -1,5 +1,5 @@
 '''
-Python code for searching algorithms ./....
+Python code for searching algorithms .//
 '''
 import math
 
