@@ -1,5 +1,5 @@
 '''
-Python code for sorting
+Python code for sorting algorithms.
 '''
 
 class Sorting:
