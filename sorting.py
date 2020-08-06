@@ -17,6 +17,27 @@ class Sorting:
         array = [64, 25, 12, 22, 11]
         self.quickSort(array, 0, len(array)-1)
         print("5. Quick Sort: ", array)
+        array = [64, 25, 12, 22, 11]
+        print("6. Heap Sort: ", self.heapSort(array))
+
+    def heapSort(self, array):
+        n = len(array)
+        for i in range(n // 2 - 1, -1, -1):
+            self.heapify(array, n, i)
+        for i in range(n - 1, 0, -1):
+            array[i], array[0] = array[0], array[i]  # swap
+            self.heapify(array, i, 0)
+        return array
+
+    def heapify(self, array, n, i):  # n -> length of sub-array, i is the root of sub-array
+        largest = i
+        l = 2*i + 1
+        r = 2*i + 2
+        if l < n and array[l] > array[largest]: largest = l
+        if r < n and array[r] > array[largest]: largest = r
+        if largest != i:
+            array[largest], array[i] = array[i], array[largest]
+            self.heapify(array, n, largest)
 
     def quickSort(self, array, low, high):
         if low < high:
