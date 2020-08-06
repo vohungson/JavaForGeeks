@@ -3,13 +3,36 @@ Python code for sorting
 '''
 
 class Sorting:
-    def __init__(self,array):
+    def __init__(self):
+        array = [64, 25, 12, 22, 11]
         print("Python code for sorting")
         print("0. Original Array: ", array)
         print("1. Selection Sort: ", self.selectionSort(array))
+        array = [64, 25, 12, 22, 11]
         print("2. Bubble Sort: ", self.bubbleSort(array))
+        array = [64, 25, 12, 22, 11]
         print("3. Insertion Sort: ", self.insertionSort(array))
+        array = [64, 25, 12, 22, 11]
         print("4. Merge Sort: ", self.mergeSort(array))
+        array = [64, 25, 12, 22, 11]
+        self.quickSort(array, 0, len(array)-1)
+        print("5. Quick Sort: ", array)
+
+    def quickSort(self, array, low, high):
+        if low < high:
+            pivot = self.partition(array, low, high)
+            self.quickSort(array, low, pivot - 1)
+            self.quickSort(array, pivot + 1, high)
+
+    def partition(self, array, low, high):
+        pivot = array[high]
+        i = low - 1
+        for j in range(low, high):
+            if array[j] < pivot:
+                i += 1
+                array[i], array[j] = array[j], array[i]
+        array[i+1], array[high] = array[high], array[i+1]
+        return i+1
 
     def mergeSort(self, array):
         if len(array) > 1:
@@ -64,5 +87,5 @@ class Sorting:
             array[i], array[minIndex] = array[minIndex], array[i]
         return array
 
-array = [64, 25, 12, 22, 11]
-Sorting(array)
+
+Sorting()
